@@ -1,12 +1,12 @@
 # TODO:	initscript, default configuration suitable for PLD
 Summary:	logfmon - log file monitoring daemon
-Summary(pl):	logfmon - demon monitorujacy pliki logów
+Summary(pl):	logfmon - demon monitoruj±cy pliki logów
 Name:		logfmon
 Version:	0.4
 Release:	0.1
 License:	distributable
 Group:		Daemons
-Source0:	http://mesh.dl.sourceforge.net/sourceforge/%{name}/%{name}-%{version}.tar.gz
+Source0:	http://mesh.dl.sourceforge.net/logfmon/%{name}-%{version}.tar.gz
 # Source0-md5:	644459b7a211ae48009c8bd9a81e59ac
 Patch0:		%{name}-make-linux.patch
 Patch1:		%{name}-conf.patch
@@ -18,7 +18,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 The logfmon daemon monitors a set of syslog log files and matches
 each new entry against the rules defined in it's configuration
 file. Each rule may be tested against lines from a single file or
-from all files. Depend- ing on the rule, a command may be executed
+from all files. Depending on the rule, a command may be executed
 or the entry may be ignored. All unmatched messages are batched
 together and mailed every 15 minutes, or whatever alternative time
 is specified in the configuration file.
@@ -36,8 +36,8 @@ mo¿e byæ ignorowany. Wszystkie niedopasowane linie s± zbierane i
 wysy³ane poczt±, domy¶lnie co 15 minut lub co okres czasu
 zdefiniowany w pliku konfiguracyjnym.
 
-Wiadomo¶ci mog± byæ tak¿e zbierane w konteksty i potokowane do 
-komendy po znalezieniu ostatniej wiadomo¶ci lub osi±gniêciu ich 
+Wiadomo¶ci mog± byæ tak¿e zbierane w konteksty i przekazywane potokiem
+do komendy po znalezieniu ostatniej wiadomo¶ci lub osi±gniêciu ich
 liczby - wiêcej szczegó³ów w logfmon.conf(5) na temat tej opcji.
 
 %prep

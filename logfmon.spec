@@ -6,7 +6,7 @@ Version:	0.4
 Release:	0.1
 License:	distributable
 Group:		Daemons
-Source0:	http://mesh.dl.sourceforge.net/logfmon/%{name}-%{version}.tar.gz
+Source0:	http://dl.sourceforge.net/logfmon/%{name}-%{version}.tar.gz
 # Source0-md5:	644459b7a211ae48009c8bd9a81e59ac
 Patch0:		%{name}-make-linux.patch
 Patch1:		%{name}-conf.patch

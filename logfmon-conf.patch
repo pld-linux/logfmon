@@ -1,0 +1,42 @@
+--- logfmon.conf	2004-11-28 16:07:35.000000000 +0100
++++ logfmon.conf	2004-12-09 00:36:37.431601656 +0100
+@@ -1,10 +1,10 @@
+ set mailtime 1m
+-set mailcmd "/usr/bin/mail -s \"`hostname` `date` log report\" root"
++set mailcmd "/bin/mail -s \"`hostname` `date` log report\" root"
+ 
+ file "/var/log/messages" tag messages
+ file "/var/log/maillog" tag mail
+ file "/var/log/secure" tag secure
+-file "/var/log/authlog" tag auth
++#file "/var/log/authlog" tag auth
+ 
+ match in * "last message repeated [0-9] times" ignore
+ 
+@@ -45,18 +45,18 @@
+ # sshd context rules
+ # messages that match contexts fall through to following rules.
+ #match in auth "sshd\\[\\([0-9]*\\)\\]: Invalid user .* from [0-9.]*" open "sshd-$1" expire 2m
+-match in auth "sshd\\[\\([0-9]*\\)\\]: input_userauth_request: invalid user .*" open "sshd-$1" expire 2m pipe "/usr/bin/mail -s \"`date` ssh attempt (expired)\" root"
+-match in auth "sshd\\[\\([0-9]*\\)\\]: .*" append "sshd-$1"
+-match in auth "sshd\\[\\([0-9]*\\)\\]: Received disconnect from .*" close "sshd-$1" pipe "/usr/bin/mail -s \"`date` ssh attempt\" root"
++#match in auth "sshd\\[\\([0-9]*\\)\\]: input_userauth_request: invalid user .*" open "sshd-$1" expire 2m pipe "/usr/bin/mail -s \"`date` ssh attempt (expired)\" root"
++#match in auth "sshd\\[\\([0-9]*\\)\\]: .*" append "sshd-$1"
++#match in auth "sshd\\[\\([0-9]*\\)\\]: Received disconnect from .*" close "sshd-$1" pipe "/usr/bin/mail -s \"`date` ssh attempt\" root"
+ 
+ # normal sshd rules
+-match in auth "sshd\\[[0-9]*\\]: Connection closed by 10.0.0.[1-9]" ignore
+-match in auth "sshd\\[[0-9]*\\]: Accepted publickey for root from 10.0.0.[1-9] port [0-9]* ssh2" ignore
+-match in auth "sshd\\[[0-9]*\\]: Accepted publickey for nicholas from 10.0.0.[1-9] port [0-9]* ssh2" ignore
+-match in auth "sshd\\[[0-9]*\\]: Root login accepted for forced command." ignore
++#match in auth "sshd\\[[0-9]*\\]: Connection closed by 10.0.0.[1-9]" ignore
++#match in auth "sshd\\[[0-9]*\\]: Accepted publickey for root from 10.0.0.[1-9] port [0-9]* ssh2" ignore
++#match in auth "sshd\\[[0-9]*\\]: Accepted publickey for nicholas from 10.0.0.[1-9] port [0-9]* ssh2" ignore
++#match in auth "sshd\\[[0-9]*\\]: Root login accepted for forced command." ignore
+ 
+ #match in auth "sshd\\[[0-9]*\\]: Failed password for invalid user .* from \\([0-9.]*\\) port [0-9]* ssh[12]" exec "grep $1 /etc/pf.ignore || (echo $1 >> /etc/pf.ignore; pfctl -t ignore -T add $1; pfctl -k $1)"
+-match in auth "sshd\\[[0-9]*\\]: Invalid user .* from \\([0-9.]*\\)" exec "grep $1 /etc/pf.ignore || (echo $1 >> /etc/pf.ignore; pfctl -t ignore -T add $1; pfctl -k $1)"
++#match in auth "sshd\\[[0-9]*\\]: Invalid user .* from \\([0-9.]*\\)" exec "grep $1 /etc/pf.ignore || (echo $1 >> /etc/pf.ignore; pfctl -t ignore -T add $1; pfctl -k $1)"
+ 
+ # fetchmail
+ match in mail "fetchmail\\[[0-9]*\\]: .*" ignore

@@ -1,0 +1,18 @@
+diff -Nurb o.logfmon-0.4/make-linux.sh n.logfmon-0.4/make-linux.sh
+--- o.logfmon-0.4/make-linux.sh	2004-11-22 16:39:15.000000000 +0100
++++ n.logfmon-0.4/make-linux.sh	2004-12-08 23:35:06.586695368 +0100
+@@ -1,4 +1,4 @@
+-#!/bin/bash
++#!/bin/sh
+ 
+ set -x
+ 
+@@ -8,7 +8,7 @@
+ fi
+ 
+ CFLAGS="-I- -I. $CFLAGS -Wall -W -Wmissing-prototypes -Wmissing-declarations \
+-    -Wshadow -Wpointer-arith -Wcast-qual -Wsign-compare -D_GNU_SOURCE"
++    -Wshadow -Wpointer-arith -Wcast-qual -Wsign-compare -D_GNU_SOURCE $@"
+ 
+ yacc -d parse.y
+ lex lex.l

@@ -11,7 +11,9 @@ Source0:	http://mesh.dl.sourceforge.net/logfmon/%{name}-%{version}.tar.gz
 Patch0:		%{name}-make-linux.patch
 Patch1:		%{name}-conf.patch
 URL:		http://logfmon.sourceforge.net/
-BuildRequires:	byacc
+BuildRequires:	bison
+BuildRequires:	flex
+BuildRequires:	sed >= 4.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -44,6 +46,8 @@ liczby - wiêcej szczegó³ów w logfmon.conf(5) na temat tej opcji.
 %setup -q
 %patch0 -p1
 %patch1 -p0
+
+sed -i -e 's/gcc/%{__cc}/g;s/yacc/bison -y/' make-linux.sh
 
 %build
 ./make-linux.sh "%{rpmcflags}"

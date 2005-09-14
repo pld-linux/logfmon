@@ -2,12 +2,12 @@
 Summary:	logfmon - log file monitoring daemon
 Summary(pl):	logfmon - demon monitoruj±cy pliki logów
 Name:		logfmon
-Version:	0.4
+Version:	0.7
 Release:	0.1
 License:	distributable
 Group:		Daemons
 Source0:	http://dl.sourceforge.net/logfmon/%{name}-%{version}.tar.gz
-# Source0-md5:	644459b7a211ae48009c8bd9a81e59ac
+# Source0-md5:	f1bd697b140baef703f49fcc48b1a42c
 Patch0:		%{name}-make-linux.patch
 Patch1:		%{name}-conf.patch
 URL:		http://logfmon.sourceforge.net/

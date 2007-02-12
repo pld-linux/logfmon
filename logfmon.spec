@@ -1,6 +1,6 @@
 # TODO:	initscript, default configuration suitable for PLD
 Summary:	logfmon - log file monitoring daemon
-Summary(pl):	logfmon - demon monitoruj±cy pliki logów
+Summary(pl.UTF-8):   logfmon - demon monitorujÄ…cy pliki logÃ³w
 Name:		logfmon
 Version:	0.7
 Release:	0.1
@@ -29,18 +29,18 @@ Messages may also be collected into contexts and piped to a command
 after a final message is found or a number of messages is reached. See
 logfmon.conf(5) for more details of this.
 
-%description -l pl
-Demon logfmon monitoruje zestaw plików sysloga i porównuje ka¿dy nowy
-wpis z regu³ami zdefiniowanymi w swoim pliku konfiguracyjnym. Ka¿da
-regu³a mo¿e byæ porównywana z lini± z jednego lub wielu plików. W
-zale¿no¶ci od regu³y mo¿e byæ wykonywana komenda lub wpis mo¿e byæ
-ignorowany. Wszystkie niedopasowane linie s± zbierane i wysy³ane
-poczt±, domy¶lnie co 15 minut lub co okres czasu zdefiniowany w pliku
+%description -l pl.UTF-8
+Demon logfmon monitoruje zestaw plikÃ³w sysloga i porÃ³wnuje kaÅ¼dy nowy
+wpis z reguÅ‚ami zdefiniowanymi w swoim pliku konfiguracyjnym. KaÅ¼da
+reguÅ‚a moÅ¼e byÄ‡ porÃ³wnywana z liniÄ… z jednego lub wielu plikÃ³w. W
+zaleÅ¼noÅ›ci od reguÅ‚y moÅ¼e byÄ‡ wykonywana komenda lub wpis moÅ¼e byÄ‡
+ignorowany. Wszystkie niedopasowane linie sÄ… zbierane i wysyÅ‚ane
+pocztÄ…, domyÅ›lnie co 15 minut lub co okres czasu zdefiniowany w pliku
 konfiguracyjnym.
 
-Wiadomo¶ci mog± byæ tak¿e zbierane w konteksty i przekazywane potokiem
-do komendy po znalezieniu ostatniej wiadomo¶ci lub osi±gniêciu ich
-liczby - wiêcej szczegó³ów w logfmon.conf(5) na temat tej opcji.
+WiadomoÅ›ci mogÄ… byÄ‡ takÅ¼e zbierane w konteksty i przekazywane potokiem
+do komendy po znalezieniu ostatniej wiadomoÅ›ci lub osiÄ…gniÄ™ciu ich
+liczby - wiÄ™cej szczegÃ³Å‚Ã³w w logfmon.conf(5) na temat tej opcji.
 
 %prep
 %setup -q

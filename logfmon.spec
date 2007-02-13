@@ -1,6 +1,6 @@
 # TODO:	initscript, default configuration suitable for PLD
 Summary:	logfmon - log file monitoring daemon
-Summary(pl.UTF-8):   logfmon - demon monitorujący pliki logów
+Summary(pl.UTF-8):	logfmon - demon monitorujący pliki logów
 Name:		logfmon
 Version:	0.7
 Release:	0.1

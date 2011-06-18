@@ -2,14 +2,13 @@
 Summary:	logfmon - log file monitoring daemon
 Summary(pl.UTF-8):	logfmon - demon monitorujący pliki logów
 Name:		logfmon
-Version:	0.7
+Version:	1.1
 Release:	0.1
 License:	distributable
 Group:		Daemons
 Source0:	http://dl.sourceforge.net/logfmon/%{name}-%{version}.tar.gz
-# Source0-md5:	f1bd697b140baef703f49fcc48b1a42c
-Patch0:		%{name}-make-linux.patch
-Patch1:		%{name}-conf.patch
+# Source0-md5:	18345830d8496a2db6d2d77ca75acc2e
+Patch0:		%{name}-conf.patch
 URL:		http://logfmon.sourceforge.net/
 BuildRequires:	bison
 BuildRequires:	flex
@@ -44,13 +43,11 @@ liczby - więcej szczegółów w logfmon.conf(5) na temat tej opcji.
 
 %prep
 %setup -q
-%patch0 -p1
-%patch1 -p0
-
-sed -i -e 's/gcc/%{__cc}/g;s/yacc/bison -y/' make-linux.sh
+%patch0 -p0
 
 %build
-./make-linux.sh "%{rpmcflags}"
+%{__make} depend all \
+	CC="%{__cc}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -58,14 +55,14 @@ rm -rf $RPM_BUILD_ROOT
 install -D logfmon $RPM_BUILD_ROOT%{_bindir}/logfmon
 install -D logfmon.conf.5 $RPM_BUILD_ROOT%{_mandir}/man5/logfmon.conf.5
 install -D logfmon.8 $RPM_BUILD_ROOT%{_mandir}/man8/logfmon.8
-install -D logfmon.conf $RPM_BUILD_ROOT%{_sysconfdir}/logfmon.conf
+install -D examples/logfmon-openbsd.conf $RPM_BUILD_ROOT%{_sysconfdir}/logfmon.conf
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc INSTALL
+%doc README examples/*
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man[58]/*
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/logfmon.conf

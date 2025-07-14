@@ -43,7 +43,7 @@ liczby - więcej szczegółów w logfmon.conf(5) na temat tej opcji.
 
 %prep
 %setup -q
-%patch0 -p0
+%patch -P0 -p0
 
 %build
 %{__make} depend all \
